@@ -1,7 +1,11 @@
 function checkCashRegister(price, cash, cid) {
-
+//variables
     let mutatedCID = []
-    let moneyForCustomer = 0;
+    let coinsForCustomer = [];
+    let newCid = [];
+    let newDenominationsofCurrency = [];
+    let totalForCustomer = [];
+    let mutatedCID2 = [];
     let change = cash * 1000 - price * 1000;
     let oneHundred = 0;
     let twenty = 0;
@@ -12,20 +16,13 @@ function checkCashRegister(price, cash, cid) {
     let dime = 0;
     let nickel = 0;
     let penny = 0;
-    let billsAnDCoinsForCustomer = [];
-    let newCid = [];
-    let newDenominationsofCurrency = [];
-    let totalForCustomer = [];
-    let backwardMutatedCID = [];
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
     let obj1 = {
         status: "OPEN",
         change: totalForCustomer
     }
     let obj2 = {
         status: "CLOSED",
-        change: backwardMutatedCID
+        change: mutatedCID2
     }
     let obj3 = {
         status: "INSUFFICIENT_FUNDS",
@@ -45,6 +42,8 @@ function checkCashRegister(price, cash, cid) {
         ["PENNY", 10]
         ];
 
+        //code
+
     for (let i = 0; i < denominationsOfCurrency.length; i++) {
         for (let j = 0; j < cid.length; j++) {
             if (denominationsOfCurrency[i][0] === cid[j][0]) {
@@ -57,6 +56,7 @@ function checkCashRegister(price, cash, cid) {
     for (let i = 0; i < newCid.length; i++) {
         mutatedCID.push(newCid[i][1] * 1000)
     }
+    const reducer = (accumulator, currentValue) => accumulator + currentValue; //function
     let totalInMutatedCID = mutatedCID.reduce(reducer);
     if (totalInMutatedCID > change && change <= mutatedCID[0]) {
         for (let i = 0; i < denominationsOfCurrency.length; i++) {
@@ -64,35 +64,35 @@ function checkCashRegister(price, cash, cid) {
                 change -= denominationsOfCurrency[i][1];
                 mutatedCID[i] -= denominationsOfCurrency[i][1];
                 moneyForCustomer += denominationsOfCurrency[i][1];
-                billsAnDCoinsForCustomer.push(denominationsOfCurrency[i])
+                coinsForCustomer.push(denominationsOfCurrency[i])
             }
         }
-        for (let i = 0; i < billsAnDCoinsForCustomer.length; i++) {
-            if (billsAnDCoinsForCustomer[i][0] == "ONE HUNDRED") {
+        for (let i = 0; i < coinsForCustomer.length; i++) {
+            if (coinsForCustomer[i][0] == "ONE HUNDRED") {
                 oneHundred += 100000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "TWENTY") {
+            if (coinsForCustomer[i][0] == "TWENTY") {
                 twenty += 20000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "TEN") {
+            if (coinsForCustomer[i][0] == "TEN") {
                 ten += 10000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "FIVE") {
+            if (coinsForCustomer[i][0] == "FIVE") {
                 five += 5000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "ONE") {
+            if (coinsForCustomer[i][0] == "ONE") {
                 one += 1000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "QUARTER") {
+            if (coinsForCustomer[i][0] == "QUARTER") {
                 quarter += 250;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "DIME") {
+            if (coinsForCustomer[i][0] == "DIME") {
                 dime += 100;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "NICKEL") {
+            if (coinsForCustomer[i][0] == "NICKEL") {
                 nickel += 50;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "PENNY") {
+            if (coinsForCustomer[i][0] == "PENNY") {
                 penny += 10;
             }
         }
@@ -131,35 +131,35 @@ function checkCashRegister(price, cash, cid) {
                 change -= denominationsOfCurrency[i][1];
                 mutatedCID[i] -= denominationsOfCurrency[i][1];
                 moneyForCustomer += denominationsOfCurrency[i][1];
-                billsAnDCoinsForCustomer.push(denominationsOfCurrency[i])
+                coinsForCustomer.push(denominationsOfCurrency[i])
             }
         }
-        for (let i = 0; i < billsAnDCoinsForCustomer.length; i++) {
-            if (billsAnDCoinsForCustomer[i][0] == "ONE HUNDRED") {
+        for (let i = 0; i < coinsForCustomer.length; i++) {
+            if (coinsForCustomer[i][0] == "ONE HUNDRED") {
                 oneHundred += 100000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "TWENTY") {
+            if (coinsForCustomer[i][0] == "TWENTY") {
                 twenty += 20000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "TEN") {
+            if (coinsForCustomer[i][0] == "TEN") {
                 ten += 10000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "FIVE") {
+            if (coinsForCustomer[i][0] == "FIVE") {
                 five += 5000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "ONE") {
+            if (coinsForCustomer[i][0] == "ONE") {
                 one += 1000;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "QUARTER") {
+            if (coinsForCustomer[i][0] == "QUARTER") {
                 quarter += 250;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "DIME") {
+            if (coinsForCustomer[i][0] == "DIME") {
                 dime += 100;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "NICKEL") {
+            if (coinsForCustomer[i][0] == "NICKEL") {
                 nickel += 50;
             }
-            if (billsAnDCoinsForCustomer[i][0] == "PENNY") {
+            if (coinsForCustomer[i][0] == "PENNY") {
                 penny += 10;
             }
         }
@@ -194,7 +194,7 @@ function checkCashRegister(price, cash, cid) {
         for (let i = 0; i < cid.length; i++) {
             for (let j = 0; j < totalForCustomer.length; j++) {
                 if (totalForCustomer[i][0] == cid[j][0]) {
-                    backwardMutatedCID.push(totalForCustomer[j])
+                    mutatedCID2.push(totalForCustomer[j])
                 }
             }
         }
@@ -203,5 +203,5 @@ function checkCashRegister(price, cash, cid) {
         return obj3
     }
 }
-let a = checkCashRegister(19.5, 20, [["PENNY", 0], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
-console.log(a);
+let result = checkCashRegister(19.5, 20, [["PENNY", 0], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]);
+console.log(result);
