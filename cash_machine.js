@@ -7,6 +7,7 @@ function checkCashRegister(price, cash, cid) {
     let totalForCustomer = [];
     let mutatedCID2 = [];
     let change = cash * 1000 - price * 1000;
+    let moneyForCustomer  = 0 ;
     let oneHundred = 0;
     let twenty = 0;
     let ten = 0;
