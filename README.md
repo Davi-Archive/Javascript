@@ -1,2 +1,2 @@
 # JavaScript-CodeCamp
-Porjects on javascript course codecamp
+Projects on javascript course codecamp
